@@ -22,17 +22,22 @@ for page in range(1,2): #page + 1
         data = soup.find_all('ul', {'class': 'result_'})
         companyName = item.find('a', {'class': 'name_des i'}).text
         information = item.find('div', {'class': 'snipet'}).text
-        city = item.find('div', {'class': 'result_right'}).span.text
+        city = item.find('div', {'class': 'result_right'}).text
       #  site = item.find('ul', {'class': 'l-item-features'}).contents[-2].text
-        phone = soup.find_all('li', {'class': 'result_ '}).nth-child[3].text
-      #  priceList = item.find('a',{'class':'i'}).text
+      #  phone = item.find('ul', {'class': 'result_'})
+      
+#
+
+     #  priceList = item.find('a',{'class':'i'}).text
+
+
 
         companies.append({
         'companyName':companyName,
         'information':information,
         'city': city,
         # 'site':site,
-         'phone':phone,
+        # 'phone':phone,
        #  'priceList':priceList
         })
 
@@ -44,6 +49,9 @@ for company in companies:
      print('Название компании:', company['companyName'])
      print('Информация про компанию:', company['information'])
      print('Город:',company['city'])
+   #  print('Телефон',company['phone'])
+
+
   #  print('Сайт:',company['site'])
    # print('Телефон:', company['phone'])
    # print('Ссылка на прайслит:', company['priceList'])
@@ -55,4 +63,5 @@ with open(FILENAME, 'w',) as csv_file:
         csv_writer.writerow([item])
 
 
-print(companies)
+#print(companies)
+#print(phone)
